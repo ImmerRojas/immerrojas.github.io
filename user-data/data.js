@@ -159,7 +159,7 @@ export const footer = [
       //   },
       {
         text: "Buy me a coffee",
-        link: "https://www.buymeacoffee.com/r194dME8y",
+        link: "https://www.buymeacoffee.com/immerrojas",
       },
       {
         text: "Github",
