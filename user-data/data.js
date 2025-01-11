@@ -5,9 +5,9 @@ export const bio = [
 ];
 
 export const skills = [
-  "JavaScript, TypeScript, Angular, RxJS, NGRX/NGXS",
-  "HTML, Bootstrap, Tailwind",
-  "GitHub, Debugging, Chrome DevTools",
+  "SQL Server, Crystal Reports, SAP Business One",
+  "Firewall Watchguard, Fortinet",
+  "Server Infrastructure, IT Operations",
 ];
 
 export const experience = [
