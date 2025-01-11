@@ -8,8 +8,7 @@ export const skills = [
   "<strong>Database Management:</strong> SQL Server, Crystal Reports, SAP Business One",
   "<strong>Network Security:</strong> WatchGuard, Fortinet Firewalls",
   "<strong>Server Infrastructure:</strong> Design, Deployment, and Optimization",
-  "<strong>IT Operations:</strong> Systems Administration, Monitoring, and Maintenance
-",
+  "<strong>IT Operations:</strong> Systems Administration, Monitoring, and Maintenance",
 ];
 
 export const experience = [
