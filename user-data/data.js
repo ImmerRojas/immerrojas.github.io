@@ -21,24 +21,18 @@ export const experience = [
     icon: "truck ",
   },
   {
-    title: "Biofourmis India Private Limited",
-    duration: "April 2022 - Jul 2023",
-    subtitle: "Software Engineer",
+    title: "IML",
+    duration: "2023 - Present",
+    subtitle: "IT Specialist",
     details: [
-      `Implemented microfrontends using the Module Federation Plugin in Angular.
-            Rendered components from remote modules/repositories, enabling a modular and scalable architecture`,
-      `Upgraded application with a dynamic base URL for flexible operation across multiple regions and verticals, leading to
-            recognition with the Biofourmis Bravo award in Q1, 2023.`,
-      `Implemented RxState for managing local state in components, resulting in elegant and reactive facades.`,
-      `Utilized Twilio-Video for group video call rooms and Countly for Web Analytics.`,
-      `Integrated NGXS WebSocket, enhancing state management and replacing legacy service injections.`,
-      `Implemented extensive RxJS usage for reactive programming, resulting in efficient data handling, improved state
-            management, and enhanced application performance.`,
-      `Dramatically optimized load time and performance through code splitting, lazy loading, caching, and preload`,
-      `Enhanced video call experience by implementing real-time switching of I/O devices and audio level indicators,
-            resulting in reduced audio issues and increased user satisfaction.`,
-      `Owned and led successful Angular application upgrades from version 12 to 13 and 14, improving performance
-            and enhancing features.`,
+      "Optimized SAP Business One environments for performance and scalability, leading successful third-party integrations to streamline data flow and improve operations.",
+      "Designed and optimized SQL queries and Crystal Reports, enhancing data-driven insights and decision-making processes.",
+      "Configured user roles and permissions in SAP Business One, ensuring secure access control and compliance with security protocols.",
+      "Provided ongoing technical support and training to end users, resolving daily issues and maintaining efficient system operations.",
+      "Contributed to the organization’s cybersecurity strategy by managing security configurations for Microsoft 365, including Multi-Factor Authentication (MFA) and Microsoft Defender, safeguarding sensitive data.",
+      "Implemented advanced network security policies using Fortinet and WatchGuard firewalls, enhancing the overall network integrity and protection against cyber threats.",
+      "Managed SQL Server environments, including installation, configuration, optimization, and development of reliable backup strategies to ensure data integrity and availability.",
+      "Integrated and managed Firebase for backend solutions, optimizing app performance and streamlining backend management.",
     ],
     tags: [
       "SQL Server",
@@ -51,63 +45,71 @@ export const experience = [
     icon: "heartbeat",
   },
   {
-    title: "Novopay Solutions Private Limited",
-    duration: "June 2020 - April 2022",
-    subtitle: "Software Engineer",
+    title: "PartsPlus",
+    duration: "2015 - 2022",
+    subtitle: "Systems and Database Management Specialist",
     details: [
-      `Implemented AePS Services, including Bio-metric eKYC, Cash Withdrawal, Balance Enquiry, Mini-Statements,
-            and Money transfer.`,
-      `Implemented QR Code integration for retailer wallet money loading, Clevertap events for user action tracking,
-            Freshdesk ticketing, Chatbot services, and Retailer onboarding/admin interfaces.`,
-      `Developed retailer QR code system for seamless money loading into wallets, resulting in improved user transactions.`,
-      `Achieved 70 percent code coverage of the entire application by writing unit tests for legacy code.`,
+      "Managed SQL Server environments, including installation, configuration, and optimization, ensuring high performance and data integrity.",
+      "Developed and optimized complex SQL queries and reports using Crystal Reports, enhancing data analytics and business intelligence.",
+      "Implemented advanced security measures using Fortinet and WatchGuard firewalls to protect the network infrastructure from potential threats.",
+      "Provided comprehensive IT support and training, resolving system issues promptly and maintaining smooth daily operations.",
+      "Integrated SAP Business One with third-party applications, streamlining workflows and improving operational efficiency.",
+      "Led the deployment and management of VPN solutions, ensuring secure remote access for employees.",
+      "Contributed to the organization's cybersecurity strategies, implementing best practices and maintaining compliance with IT security protocols.",
+      "Wrote unit tests for critical system components, improving code reliability and achieving high coverage for legacy systems.",
     ],
-    tags: ["JavaScript", "Angular", "Bootstrap", "Nodejs", "Jenkins"],
-    icon: "qrcode",
+    tags: ["SQL Server", "Crystal Reports", "SAP Business One", "Fortinet", "WatchGuard", "VPN", "IT Support"],
+    icon: "database",
   },
   {
-    title: "ThinkPedia LLP",
-    duration: "May 2019 - June 2019",
-    subtitle: "SDE Intern",
+    title: "HDM",
+    duration: "2011 - 2015",
+    subtitle: "Systems and Database Management Specialist",
     details: [
-      `Developed a customer web application for social media management, supporting the advertisement domain.`,
+      "Developed and maintained database solutions using SQL Server to support business operations and data analysis.",
+      "Created and customized Crystal Reports to provide insightful reports for various departments, enhancing decision-making processes.",
+      "Configured and managed Fortinet firewalls to secure the network infrastructure, protecting against potential threats.",
+      "Provided IT support and training to end users, ensuring effective use of systems and quick resolution of technical issues.",
+      "Implemented best practices in database management, improving data integrity and system performance.",
     ],
-    tags: ["JavaScript", "Angular", "Bootstrap", "Java", "Spring Boot"],
-    icon: "group",
+    tags: ["SQL Server", "Crystal Reports", "Fortinet", "IT Support", "Database Management"],
+    icon: "database",
   },
 ];
 
-export const trekking = [
-  '<strong>Kheerganga Trek</strong>, Himachal Pradesh (9,711 feet)',
-  '<strong>Triund Trek</strong>, Himachal Pradesh (9,350 feet)',
-  '<strong>Kedarkantha Trek</strong>, Uttarakhand (12,500 feet)',
-  '<strong>Jalori Pass Trek</strong>, Himachal Pradesh (10,800 feet)',
-  '<strong>Vaishno Devi Trek</strong>, Jammu & Kashmir (5,200 feet)',
+export const projects = [
+  '<strong>SQL Server Optimization</strong>, Enhanced database performance and reliability through advanced optimization techniques.',
+  '<strong>Crystal Reports Development</strong>, Created comprehensive reports to support data-driven decision-making processes.',
+  '<strong>SAP Business One Integration</strong>, Streamlined operations by integrating SAP Business One with third-party systems.',
+  '<strong>Network Security Implementation</strong>, Secured network infrastructure using Fortinet and WatchGuard firewalls.',
+  '<strong>IT Support and Training</strong>, Provided end-user support and technical training, improving system utilization and efficiency.',
 ];
 
 export const education = [
   {
-    title: "B.Tech. in Computer Science and Engineering",
-    duration: "2016 - 2020",
-    subtitle: "National Institute of Technology, Warangal",
+    title: "Bachelor's Degree in Computer Science Engineering",
+    duration: "2016 - 2021",
+    subtitle: "Universidad Francisco Gavidia",
     details: [],
     tags: [
       "Data Structures & Algorithms",
       "Operating Systems",
       "Database Management System",
       "Computer Networks",
-      "Compiler Designing",
       "Cloud Computing",
+      "Artificial Intelligence",
     ],
     icon: "graduation-cap",
   },
   {
-    title: "Class 12th in Science and Mathematics",
-    duration: "",
-    subtitle: "Board of Secondary Education, Rajasthan",
-    details: [],
-    tags: ["Physics", "Chemistry", "Mathematics"],
-    icon: "book",
+    {
+      "title": "Bachelor's Degree in Computer Science Engineering",
+      "duration": "2016 - 2021",
+      "subtitle": "Universidad Francisco Gavidia",
+      "details": ["Focused on core concepts of computer science, programming, and systems administration", "Acquired hands-on experience with database management, networking, and IT security"],
+      "tags": ["Computer Science", "Programming", "Networking", "IT Security"],
+      "icon": "graduation-cap"
+  }
   },
 ];
 
@@ -159,11 +161,11 @@ export const footer = [
       //   },
       {
         text: "Buy me a coffee",
-        link: "https://www.buymeacoffee.com/r194dME8y",
+        link: "https://www.buymeacoffee.com/immerrojas",
       },
       {
         text: "Github",
-        link: "https://github.com/vinaysomawat/vinaysomawat.github.io",
+        link: "https://github.com/ImmerRojas/immerrojas.github.io",
       },
     ],
   },
