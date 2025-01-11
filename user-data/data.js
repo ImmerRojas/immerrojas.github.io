@@ -1,5 +1,5 @@
 export const bio = [
-  "Hello, I'm Vinay Somawat!",
+  "Hello, I'm Immer Rojas!",
   "I’m a passionate and experienced <strong>Frontend Engineer</strong> specializing in developing dynamic web applications using Angular and React. I thrive on optimizing performance and delivering innovative, user-focused solutions.",
   "Beyond coding, I enjoy traveling through the serene <strong>Himalayan mountains</strong> and experimenting with new recipes in the <strong>kitchen</strong>.",
 ];
@@ -170,6 +170,6 @@ export const footer = [
   },
   {
     label: "copyright-text",
-    data: ["Made with &hearts; by Vinay Somawat"],
+    data: ["Made with &hearts; by Immer Rojas"],
   },
 ];
