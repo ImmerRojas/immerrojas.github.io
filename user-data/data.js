@@ -106,8 +106,8 @@ export const education = [
       "title": "Bachelor's Degree in Computer Science Engineering",
       "duration": "2016 - 2021",
       "subtitle": "Universidad Francisco Gavidia",
-      "details": ["Focused on core concepts of computer science, programming, and systems administration", "Acquired hands-on experience with database management, networking, and IT security"],
-      "tags": ["Computer Science", "Programming", "Networking", "IT Security"],
+      "details": "Focused on core concepts of computer science, programming, and systems administration", "Acquired hands-on experience with database management, networking, and IT security",
+      "tags": "Computer Science", "Programming", "Networking", "IT Security",
       "icon": "graduation-cap"
   }
   },
