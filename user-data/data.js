@@ -1,7 +1,7 @@
 export const bio = [
   "Hello, I'm Immer Rojas!",
-  "I’m a passionate and experienced <strong>Frontend Engineer</strong> specializing in developing dynamic web applications using Angular and React. I thrive on optimizing performance and delivering innovative, user-focused solutions.",
-  "Beyond coding, I enjoy traveling through the serene <strong>Himalayan mountains</strong> and experimenting with new recipes in the <strong>kitchen</strong>.",
+  "I’m a passionate and experienced <strong>Systems Administrator</strong> specializing in server infrastructure, SAP Business One, SQL Server, and Crystal Reports. I thrive on optimizing IT operations and delivering efficient, scalable solutions for businesses.",
+  "Beyond technology, I enjoy learning about different dog breeds and exploring video games, especially characters from the <strong>Mario Bros universe</strong>.",
 ];
 
 export const skills = [
