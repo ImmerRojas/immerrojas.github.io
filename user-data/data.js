@@ -97,6 +97,14 @@ export const education = [
     tags: ["Computer Science", "Programming", "Networking", "IT Security"],
     icon: "graduation-cap",
   },
+  {
+    title: "Cisco Certified Network Asociate",
+    duration: "",
+    subtitle: "CCNA",
+    details: [],
+    tags: ["Networks"],
+    icon: "book",
+  },  
 ];
 
 export const footer = [
