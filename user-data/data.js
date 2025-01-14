@@ -18,7 +18,7 @@ export const experience = [
     subtitle: "Software Engineer",
     details: ["Working in support and escalation team."],
     tags: ["JavaScript", "Angular", "Bootstrap", "AngularJs"],
-    icon: "truck ",
+    icon: "truck",
   },
   {
     title: "IML",
@@ -90,29 +90,16 @@ export const education = [
     title: "Bachelor's Degree in Computer Science Engineering",
     duration: "2016 - 2021",
     subtitle: "Universidad Francisco Gavidia",
-    details: [],
-    tags: [
-      "Data Structures & Algorithms",
-      "Operating Systems",
-      "Database Management System",
-      "Computer Networks",
-      "Cloud Computing",
-      "Artificial Intelligence",
+    details: [
+      "Focused on core concepts of computer science, programming, and systems administration",
+      "Acquired hands-on experience with database management, networking, and IT security"
     ],
+    tags: ["Computer Science", "Programming", "Networking", "IT Security"],
     icon: "graduation-cap",
-  },
-    {
-      "title": "Bachelor's Degree in Computer Science Engineering",
-      "duration": "2016 - 2021",
-      "subtitle": "Universidad Francisco Gavidia",
-      "details": ["Focused on core concepts of computer science, programming, and systems administration", "Acquired hands-on experience with database management, networking, and IT security"],
-      "tags": ["Computer Science", "Programming", "Networking", "IT Security"],
-      "icon": "graduation-cap"
   },
 ];
 
 export const footer = [
-
   {
     label: "Links",
     data: [
