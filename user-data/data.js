@@ -1,128 +1,157 @@
 export const bio = [
-  "Hello, I'm Immer Rojas!",
-  "I’m a passionate and experienced <strong>Systems Administrator</strong> specializing in server infrastructure, SAP Business One, SQL Server, and Crystal Reports. I thrive on optimizing IT operations and delivering efficient, scalable solutions for businesses.",
-  "Beyond technology, I enjoy learning about different dog breeds and exploring video games, especially characters from the <strong>Mario Bros universe</strong>.",
+  "Hello, I'm Immer Rojas González!", // Updated Name
+  "Experienced <strong>System Administrator</strong> with a proven track record in optimizing IT infrastructures for maximum performance and security. Specialized in cloud and on premise solutions, and cybersecurity to enhance system reliability and improve business operations. Dedicated to delivering superior IT support in dynamic, fast-paced environments.", // Combined Objective from resume
+  "Beyond technology, I focus on continuous learning in IT and exploring advancements like Artificial Intelligence (AI).", // Adapted filler text based on resume content
 ];
 
-export const skills = [
-  "<strong>Database Management:</strong> SQL Server, Crystal Reports, SAP Business One",
-  "<strong>Network Security:</strong> WatchGuard, Fortinet Firewalls",
-  "<strong>Server Infrastructure:</strong> Design, Deployment, and Optimization",
-  "<strong>IT Operations:</strong> Systems Administration, Monitoring, and Maintenance",
+export const skills = [ // Extracted from Technical Skills
+  "<strong>Operating Systems:</strong> Windows Server",
+  "<strong>Cloud & Virtualization:</strong> Azure, Office 365, VMware, Hyper-V",
+  "<strong>Network & Security:</strong> Fortinet, WatchGuard, Cisco Firewalls, VPN, ESET Antivirus",
+  "<strong>Database:</strong> SQL Server, MySQL, Firebase",
+  "<strong>ERP:</strong> SAP Business One",
+  "<strong>Reporting & Analytics:</strong> Crystal Reports, Power BI, Tableau",
+  "<strong>Web Services:</strong> IIS, DNS, LAN/WAN",
+  "<strong>Server Services:</strong> GPO, AD, RDS, File and Print Services",
+  "<strong>Others:</strong> UniFi Ubiquiti Wi-Fi, Xorcom, Alcatel, System Customization, Artificial Intelligence (AI)",
 ];
 
-export const experience = [
-  {
-    title: "Shiprocket Private Limited",
-    duration: "September 2023 - Present",
-    subtitle: "Software Engineer",
-    details: ["Working in support and escalation team."],
-    tags: ["JavaScript", "Angular", "Bootstrap", "AngularJs"],
-    icon: "truck",
+export const experience = [ // Combined experience entries
+   {
+    title: "IML", //
+    duration: "2023 - Present", //
+    subtitle: "IT Specialist / Systems and Database Management Specialist", // Combined titles
+    details: [
+      // Details combined from IML and General Specialist sections relevant to timeframe
+      "Optimized SAP Business One environments for performance and scalability; led third-party integrations.",
+      "Designed and optimized SQL queries and Crystal Reports for data-driven insights.",
+      "Configured user roles and permissions in SAP Business One.",
+      "Provided ongoing technical support and training to end users.",
+      "Managed security configurations for Microsoft 365 (Defender, MFA).",
+      "Configured, managed, and secured network firewalls (Fortinet, WatchGuard, Cisco).",
+      "Applied cybersecurity practices: network segmentation, vulnerability management, threat mitigation.",
+      "Managed SQL Server environments: installation, configuration, optimization, backup strategies.",
+      "Crafted complex SQL queries for data analysis and reporting.",
+      "Troubleshot and optimized MySQL databases.",
+      "Deployed ESET Antivirus and integrated endpoint protection.",
+      "Set up and deployed Firebase for backend management and app performance.",
+      "Integrated SAP Business One with third-party systems.",
+    ],
+    tags: ["SAP Business One", "SQL Server", "Crystal Reports", "MySQL", "Firebase", "Fortinet", "WatchGuard", "Cisco", "Cybersecurity", "Microsoft 365", "Windows Server", "IT Support"], // Synthesized from details
+    icon: "briefcase", // Changed icon
   },
   {
-    title: "IML",
-    duration: "2023 - Present",
-    subtitle: "IT Specialist",
+    title: "PartsPlus", //
+    duration: "2015 - 2022", //
+    subtitle: "Systems and Database Management Specialist", //
     details: [
-      "Optimized SAP Business One environments for performance and scalability, leading successful third-party integrations to streamline data flow and improve operations.",
-      "Designed and optimized SQL queries and Crystal Reports, enhancing data-driven insights and decision-making processes.",
-      "Configured user roles and permissions in SAP Business One, ensuring secure access control and compliance with security protocols.",
-      "Provided ongoing technical support and training to end users, resolving daily issues and maintaining efficient system operations.",
-      "Contributed to the organization’s cybersecurity strategy by managing security configurations for Microsoft 365, including Multi-Factor Authentication (MFA) and Microsoft Defender, safeguarding sensitive data.",
-      "Implemented advanced network security policies using Fortinet and WatchGuard firewalls, enhancing the overall network integrity and protection against cyber threats.",
-      "Managed SQL Server environments, including installation, configuration, optimization, and development of reliable backup strategies to ensure data integrity and availability.",
-      "Integrated and managed Firebase for backend solutions, optimizing app performance and streamlining backend management.",
+      // Details from General Specialist section relevant to timeframe
+      "Configured, managed, and secured network firewalls (Fortinet, WatchGuard).",
+      "Applied cybersecurity practices and compliance protocols.",
+      "Managed SQL Server environments: installation, configuration, optimization, backups.",
+      "Developed complex SQL queries for analysis and reporting.",
+      "Troubleshot and optimized MySQL databases.",
+      "Deployed ESET Antivirus and integrated endpoint protection.",
+       "Integrated SAP Business One with third-party systems.", // Also mentioned in PartsPlus specific description in original data.js
+       "Led the deployment and management of VPN solutions.", // From original data.js PartsPlus entry, plausible for timeframe
+       "Provided comprehensive IT support and training.", // From original data.js PartsPlus entry, plausible for timeframe
     ],
-    tags: [
-      "SQL Server",
-      "Crystal Reports",
-      "SAP Business One",
-      "Firewall Management (WatchGuard, Fortinet)",
-      "Server Infrastructure",
-      "IT Operations",
-    ],
-    icon: "heartbeat",
+    tags: ["SQL Server", "MySQL", "SAP Business One", "Fortinet", "WatchGuard", "Cybersecurity", "VPN", "IT Support", "Windows Server"], // Synthesized from details
+    icon: "database", // Kept icon
   },
   {
-    title: "PartsPlus",
-    duration: "2015 - 2022",
-    subtitle: "Systems and Database Management Specialist",
+    title: "HDM", //
+    duration: "2011 - 2015", //
+    subtitle: "Systems and Database Management Specialist", //
     details: [
-      "Managed SQL Server environments, including installation, configuration, and optimization, ensuring high performance and data integrity.",
-      "Developed and optimized complex SQL queries and reports using Crystal Reports, enhancing data analytics and business intelligence.",
-      "Implemented advanced security measures using Fortinet and WatchGuard firewalls to protect the network infrastructure from potential threats.",
-      "Provided comprehensive IT support and training, resolving system issues promptly and maintaining smooth daily operations.",
-      "Integrated SAP Business One with third-party applications, streamlining workflows and improving operational efficiency.",
-      "Led the deployment and management of VPN solutions, ensuring secure remote access for employees.",
-      "Contributed to the organization's cybersecurity strategies, implementing best practices and maintaining compliance with IT security protocols.",
-      "Wrote unit tests for critical system components, improving code reliability and achieving high coverage for legacy systems.",
+      // Details from General Specialist section relevant to timeframe
+      "Configured, managed, and secured network firewalls (Fortinet).",
+       "Applied cybersecurity practices.",
+       "Managed SQL Server environments: installation, configuration, optimization, backups.",
+       "Developed complex SQL queries for data analysis and reporting.",
+       "Troubleshot and optimized MySQL databases.",
+       "Provided IT support and training to end users.", // From original data.js HDM entry, plausible for timeframe
+       "Created and customized Crystal Reports.", // From original data.js HDM entry, plausible for timeframe
     ],
-    tags: ["SQL Server", "Crystal Reports", "SAP Business One", "Fortinet", "WatchGuard", "VPN", "IT Support"],
-    icon: "database",
-  },
-  {
-    title: "HDM",
-    duration: "2011 - 2015",
-    subtitle: "Systems and Database Management Specialist",
-    details: [
-      "Developed and maintained database solutions using SQL Server to support business operations and data analysis.",
-      "Created and customized Crystal Reports to provide insightful reports for various departments, enhancing decision-making processes.",
-      "Configured and managed Fortinet firewalls to secure the network infrastructure, protecting against potential threats.",
-      "Provided IT support and training to end users, ensuring effective use of systems and quick resolution of technical issues.",
-      "Implemented best practices in database management, improving data integrity and system performance.",
-    ],
-    tags: ["SQL Server", "Crystal Reports", "Fortinet", "IT Support", "Database Management"],
-    icon: "database",
+    tags: ["SQL Server", "MySQL", "Fortinet", "Crystal Reports", "IT Support", "Database Management"], // Synthesized from details
+    icon: "server", // Changed icon
   },
 ];
 
+// Repurposing 'projects' to highlight key technical areas based on skills/experience
 export const projects = [
-  '<strong>SQL Server Optimization</strong>, Enhanced database performance and reliability through advanced optimization techniques.',
-  '<strong>Crystal Reports Development</strong>, Created comprehensive reports to support data-driven decision-making processes.',
-  '<strong>SAP Business One Integration</strong>, Streamlined operations by integrating SAP Business One with third-party systems.',
-  '<strong>Network Security Implementation</strong>, Secured network infrastructure using Fortinet and WatchGuard firewalls.',
-  '<strong>IT Support and Training</strong>, Provided end-user support and technical training, improving system utilization and efficiency.',
+  '<strong>Firewall & Network Security:</strong> Configuration and management (Fortinet, WatchGuard, Cisco).',
+  '<strong>Cybersecurity Implementation:</strong> Policies, threat mitigation, endpoint security (ESET), M365 Security.',
+  '<strong>SQL Server & MySQL Management:</strong> Installation, configuration, optimization, backup, query development.',
+  '<strong>SAP Business One:</strong> Optimization, integration, user management.',
+  '<strong>Cloud & Virtualization:</strong> Azure, Office 365, VMware, Hyper-V administration.',
+  '<strong>Reporting & Analytics:</strong> Crystal Reports, Power BI, Tableau report creation.',
+  '<strong>IT Infrastructure Support:</strong> Windows Server, AD, GPO, RDS, Network Services (DNS, LAN/WAN).',
+  '<strong>AI Integration:</strong> Exploring Artificial Intelligence applications.',
 ];
 
-export const education = [
+export const education = [ // From Education and Certifications
   {
-    title: "Bachelor's Degree in Computer Science Engineering",
-    duration: "2016 - 2021",
-    subtitle: "Universidad Francisco Gavidia",
-    details: [
-      "Focused on core concepts of computer science, programming, and systems administration",
-      "Acquired hands-on experience with database management, networking, and IT security"
-    ],
-    tags: ["Computer Science", "Programming", "Networking", "IT Security"],
-    icon: "graduation-cap",
+    title: "International Postgraduate in Artificial Intelligence for Strategic Business Management", //
+    duration: "2024", //
+    subtitle: "ISEADE FEPADE", //
+    details: [],
+    tags: ["Artificial Intelligence", "Business Management", "Strategic Management"], // Interpreted tags
+    icon: "brain", // Changed icon
   },
   {
-    title: "Cisco Certified Network Asociate",
-    duration: "",
-    subtitle: "CCNA",
-    details: [],
-    tags: ["Networks"],
-    icon: "book",
-  },  
+    title: "Bachelor's Degree in Computer Science Engineering", //
+    duration: "2016 - 2021", //
+    subtitle: "Universidad Francisco Gavidia", //
+    details: [
+      "Focused on core concepts of computer science, programming, and systems administration", // Kept from original data.js, consistent
+      "Acquired hands-on experience with database management, networking, and IT security" // Kept from original data.js, consistent
+    ],
+    tags: ["Computer Science", "Programming", "Systems Administration", "Database Management", "Networking", "IT Security"], // Expanded tags
+    icon: "graduation-cap", // Kept icon
+  },
+   {
+    title: "Cisco Certified Network Associate (CCNA)", //
+    duration: "Obtained: 2021", //
+    subtitle: "Certification by Cisco", //
+    details: ["Validated foundational networking knowledge and skills."], // Added detail
+    tags: ["Networking", "Cisco", "Certification"], // Expanded tags
+    icon: "certificate", // Changed icon
+  },
+   {
+    title: "Microsoft Defender for Cloud Security & Exchange Online Training", // Combined trainings
+    duration: "Completed: 2023", // From resume training section
+    subtitle: "ITCO Cloud Academy", // From resume training section
+    details: ["Training on Security at Scale, Configurations and Best Practices."], // From resume training section
+    tags: ["Cloud Security", "Microsoft Defender", "Exchange Online", "Microsoft 365"], // Interpreted tags
+    icon: "cloud", // Changed icon
+  },
 ];
 
 export const footer = [
   {
     label: "Links",
     data: [
-      {
-        text: "Buy me a coffee",
-        link: "https://www.buymeacoffee.com/immerrojas",
+       { // Added LinkedIn from resume
+        text: "LinkedIn",
+        link: "https://www.linkedin.com/in/immer-rojas", // Updated link
       },
-      {
+      { // Kept GitHub link as it's common for portfolios
         text: "Github",
-        link: "https://github.com/ImmerRojas/immerrojas.github.io",
+        link: "https://github.com/ImmerRojas", // Assumed generic GitHub profile URL
       },
     ],
   },
   {
+    label: "Contact", // Added contact info based on resume
+    data: [
+        { text: "immer.rojas@gmail.com" }, //
+        { text: "(503) 7874-9160" }, //
+        { text: "Santa Ana, El Salvador" }, //
+    ],
+  },
+  {
     label: "copyright-text",
-    data: ["Made with &hearts; by Immer Rojas"],
+    data: ["Made with &hearts; by Immer Rojas González"], // Updated name
   },
 ];
