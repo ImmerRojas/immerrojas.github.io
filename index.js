@@ -1,6 +1,6 @@
 // index.js - Handles populating the HTML with data
 
-// Corrected import path for data.js
+// Corrected import path for data.js to reflect the 'user-data' folder
 import {
   bio,
   skills,
@@ -8,7 +8,7 @@ import {
   experience,
   projects, // Added projects import
   footer,
-} from "./data.js";
+} from "./user-data/data.js"; // <--- CORRECTED PATH
 
 // Helper function to create elements
 function getElement(tagName, className) {
@@ -163,7 +163,8 @@ function populateLinks(items, id) {
     if (item.label !== "copyright-text") {
       // Determine column width based on number of non-copyright sections
       const linkSections = items.filter(f => f.label !== 'copyright-text').length;
-      const colWidth = linkSections > 0 ? Math.floor(12 / linkSections) : 12; // e.g., col-md-6 for 2 sections
+      // Ensure at least col-md-4 for readability, adjust as needed
+      const colWidth = linkSections > 0 ? Math.max(4, Math.floor(12 / linkSections)) : 12;
       let colDiv = getElement("div", `col-md-${colWidth} col-sm-6`); // Add sm for responsiveness
 
       let p = getElement("p", "col-title");
@@ -220,22 +221,30 @@ function populateLinks(items, id) {
 
 // --- Wait for DOM to load before running scripts ---
 document.addEventListener('DOMContentLoaded', () => {
-    console.log("DOM fully loaded and parsed"); // Add console log for debugging
+    console.log("DOM fully loaded and parsed. Populating content..."); // Add console log for debugging
 
     // Call population functions safely after DOM is ready
-    populateBio(bio, "bio");
-    populateSkills(skills, "skills");
-    populateProjects(projects, "projects"); // Added call for projects
-    populateExp_Edu(experience, "experience");
-    populateExp_Edu(education, "education");
-    populateLinks(footer, "footer");
+    try {
+        populateBio(bio, "bio");
+        populateSkills(skills, "skills");
+        populateProjects(projects, "projects"); // Added call for projects
+        populateExp_Edu(experience, "experience");
+        populateExp_Edu(education, "education");
+        populateLinks(footer, "footer");
+        console.log("Content population functions called."); // Confirm functions were called
+    } catch (error) {
+        console.error("Error during content population:", error); // Log any errors during population
+    }
 
     // If main.js depends on content being populated, ensure it runs after or is also deferred correctly.
     // Triggering animations or waypoints might need a slight delay or re-initialization if content loads later.
-    // Example: Re-initialize waypoints if needed after content population
-    // if (typeof Waypoint !== 'undefined' && typeof Waypoint.refreshAll === 'function') {
-    //     Waypoint.refreshAll();
-    // }
+    // Check if Waypoint exists before trying to refresh
+    if (typeof Waypoint !== 'undefined' && typeof Waypoint.refreshAll === 'function') {
+         console.log("Refreshing Waypoints...");
+         Waypoint.refreshAll();
+    } else {
+         console.log("Waypoint library not found or refreshAll not available.");
+    }
 });
 
 // Note: Removed functions related to Medium, Git Repo lists, GitConnected
