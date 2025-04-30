@@ -1,4 +1,6 @@
-// Corrected import path for data.js and removed unused imports
+// index.js - Handles populating the HTML with data
+
+// Corrected import path for data.js
 import {
   bio,
   skills,
@@ -8,12 +10,24 @@ import {
   footer,
 } from "./data.js";
 
-// Removed functions related to Medium, GitConnected, GitHub Repos:
-// fetchBlogsFromMedium, fetchReposFromGit, fetchGitConnectedData, mapBasicResponse, populateBlogs, populateRepo
+// Helper function to create elements
+function getElement(tagName, className) {
+  let item = document.createElement(tagName);
+  if (className) { // Only set className if provided
+      item.className = className;
+  }
+  return item;
+}
 
-// Kept populateBio function as is
+// --- Population Functions ---
+
 function populateBio(items, id) {
   const bioTag = document.getElementById(id);
+  if (!bioTag) {
+      console.error(`Element with id "${id}" not found for bio.`);
+      return;
+  }
+  bioTag.innerHTML = ''; // Clear existing content
   items.forEach((bioItem) => {
     const p = getElement("p", null);
     p.innerHTML = bioItem;
@@ -21,17 +35,21 @@ function populateBio(items, id) {
   });
 }
 
-// Kept populateSkills function as is
 function populateSkills(items, id) {
   const skillsTag = document.getElementById(id);
+   if (!skillsTag) {
+      console.error(`Element with id "${id}" not found for skills.`);
+      return;
+  }
+  skillsTag.innerHTML = ''; // Clear existing content
   items.forEach((item) => {
-    const h3 = getElement("li", null);
+    const h3 = getElement("li", null); // Using list items for skills as well
     h3.innerHTML = item;
 
-    const divProgressWrap = getElement("div", "progress-wrap");
+    const divProgressWrap = getElement("div", "progress-wrap"); // Keeping original class names
     divProgressWrap.append(h3);
 
-    const divAnimateBox = getElement("div", "col-md-12 animate-box");
+    const divAnimateBox = getElement("div", "col-md-6 animate-box"); // Use col-md-6 for two columns
     divAnimateBox.append(divProgressWrap);
 
     skillsTag.append(divAnimateBox);
@@ -41,6 +59,11 @@ function populateSkills(items, id) {
 // Added populateProjects function (similar to populateSkills)
 function populateProjects(items, id) {
   const projectsTag = document.getElementById(id);
+   if (!projectsTag) {
+      console.error(`Element with id "${id}" not found for projects.`);
+      return;
+  }
+  projectsTag.innerHTML = ''; // Clear existing content
   items.forEach((item) => {
     const h3 = getElement("li", null); // Using list items for simplicity
     h3.innerHTML = item;
@@ -48,181 +71,172 @@ function populateProjects(items, id) {
     const divProgressWrap = getElement("div", "progress-wrap");
     divProgressWrap.append(h3);
 
-    const divAnimateBox = getElement("div", "col-md-12 animate-box"); // Using col-md-12 for full width list items
+    // Use col-md-12 for full width list items or col-md-6 for two columns
+    const divAnimateBox = getElement("div", "col-md-12 animate-box");
     divAnimateBox.append(divProgressWrap);
 
     projectsTag.append(divAnimateBox);
   });
 }
 
-
-// Removed populateTrekking function
-
-// Kept populateExp_Edu function as is
 function populateExp_Edu(items, id) {
   let mainContainer = document.getElementById(id);
+   if (!mainContainer) {
+      console.error(`Element with id "${id}" not found for experience/education.`);
+      return;
+  }
+  mainContainer.innerHTML = ''; // Clear existing content
 
-  for (let i = 0; i < items.length; i++) {
-    let spanTimelineSublabel = document.createElement("span");
-    spanTimelineSublabel.className = "timeline-sublabel";
-    spanTimelineSublabel.innerHTML = items[i].subtitle;
+  items.forEach((item, i) => { // Changed to forEach for consistency
+    let spanTimelineSublabel = getElement("span", "timeline-sublabel");
+    spanTimelineSublabel.innerHTML = item.subtitle || ""; // Add default empty string
 
-    let spanh2 = document.createElement("span");
-    spanh2.innerHTML = items[i].duration;
+    let spanh2 = getElement("span", null);
+    spanh2.innerHTML = item.duration || ""; // Add default empty string
 
-    let h2TimelineLabel = document.createElement("h2");
-    h2TimelineLabel.innerHTML = items[i].title;
+    let h2TimelineLabel = getElement("h2", null);
+    h2TimelineLabel.innerHTML = item.title || ""; // Add default empty string
     h2TimelineLabel.append(spanh2);
 
-    let divTimelineLabel = document.createElement("div");
-    divTimelineLabel.className = "timeline-label";
+    let divTimelineLabel = getElement("div", "timeline-label");
     divTimelineLabel.append(h2TimelineLabel);
     divTimelineLabel.append(spanTimelineSublabel);
 
-    if (items[i].details && items[i].details.length > 0) { // Check if details exist
-        for (let j = 0; j < items[i].details.length; j++) {
-          let pTimelineText = document.createElement("p");
-          pTimelineText.className = "timeline-text";
-          pTimelineText.innerHTML = "&blacksquare; " + items[i].details[j];
-          divTimelineLabel.append(pTimelineText);
-        }
+    if (item.details && Array.isArray(item.details) && item.details.length > 0) { // Check if details exist and is an array
+        item.details.forEach(detail => { // Use forEach for details
+            let pTimelineText = getElement("p", "timeline-text");
+            pTimelineText.innerHTML = "&blacksquare; " + detail;
+            divTimelineLabel.append(pTimelineText);
+        });
     }
 
-
-    if (items[i].tags && items[i].tags.length > 0) { // Check if tags exist
-        let divTags = document.createElement("div");
-        divTags.className = "tags-container"; // Added class for styling if needed
-        for (let j = 0; j < items[i].tags.length; j++) {
-          let spanTags = document.createElement("span");
-          spanTags.className = "badge";
-          spanTags.innerHTML = items[i].tags[j];
-          divTags.append(spanTags);
-        }
+    if (item.tags && Array.isArray(item.tags) && item.tags.length > 0) { // Check if tags exist and is an array
+        let divTags = getElement("div", "tags-container"); // Added class for styling if needed
+        item.tags.forEach(tag => { // Use forEach for tags
+            let spanTags = getElement("span", "badge"); // Standard badge class
+            spanTags.innerHTML = tag;
+            divTags.append(spanTags);
+        });
         divTimelineLabel.append(divTags);
     }
 
+    let iFa = getElement("i", "fa fa-" + (item.icon || "briefcase")); // Default icon
 
-    let iFa = document.createElement("i");
-    // Use a default icon if specific one isn't provided
-    iFa.className = "fa fa-" + (items[i].icon || "briefcase");
-
-    // Use a default color class if needed, or cycle through colors
+    // Use a default color class or cycle through colors
     let iconColorClass = "color-" + ((i % 5) + 1); // Cycle through 5 colors
-    let divTimelineIcon = document.createElement("div");
-    divTimelineIcon.className = "timeline-icon " + iconColorClass;
+    let divTimelineIcon = getElement("div", "timeline-icon " + iconColorClass);
     divTimelineIcon.append(iFa);
 
-    let divTimelineEntryInner = document.createElement("div");
-    divTimelineEntryInner.className = "timeline-entry-inner";
+    let divTimelineEntryInner = getElement("div", "timeline-entry-inner");
     divTimelineEntryInner.append(divTimelineIcon);
     divTimelineEntryInner.append(divTimelineLabel);
 
-    let article = document.createElement("article");
-    article.className = "timeline-entry animate-box";
+    let article = getElement("article", "timeline-entry animate-box");
     article.append(divTimelineEntryInner);
 
     mainContainer.append(article);
-  }
+  });
 
   // Keep the 'begin' marker at the end of the timeline
-  let divTimelineIcon = document.createElement("div");
-   let endIconColorClass = "color-" + (((items.length) % 5) + 1); // Match color cycling
-  divTimelineIcon.className = "timeline-icon " + endIconColorClass;
+  let divTimelineIconEnd = getElement("div", "timeline-icon color-" + (((items.length) % 5) + 1));
 
+  let divTimelineEntryInnerEnd = getElement("div", "timeline-entry-inner");
+  divTimelineEntryInnerEnd.append(divTimelineIconEnd);
 
-  let divTimelineEntryInner = document.createElement("div");
-  divTimelineEntryInner.className = "timeline-entry-inner";
-  divTimelineEntryInner.append(divTimelineIcon);
+  let articleEnd = getElement("article", "timeline-entry begin animate-box"); // 'begin' class might be styled as the end marker
+  articleEnd.append(divTimelineEntryInnerEnd);
 
-  let article = document.createElement("article");
-  article.className = "timeline-entry begin animate-box"; // 'begin' class might be styled as the end marker
-  article.append(divTimelineEntryInner);
-
-  mainContainer.append(article);
+  mainContainer.append(articleEnd);
 }
 
-
-// Kept populateLinks function as is, but ensure footer structure in data.js matches
 function populateLinks(items, id) {
   let footer = document.getElementById(id);
+   if (!footer) {
+      console.error(`Element with id "${id}" not found for footer.`);
+      return;
+  }
   footer.innerHTML = ''; // Clear existing footer content before populating
 
-  let row = document.createElement("div"); // Use a row div for better layout control
-  row.className = "row"; // Assuming Bootstrap grid system is used
+  let linkRow = getElement("div", "row"); // Use a row div for link/contact sections
 
   items.forEach(function (item) {
     if (item.label !== "copyright-text") {
-      let colDiv = document.createElement("div");
-      // Assign columns based on number of sections, e.g., col-md-4 for 3 sections
-      colDiv.className = "col-md-4"; // Adjust based on how many footer sections you have
+      // Determine column width based on number of non-copyright sections
+      const linkSections = items.filter(f => f.label !== 'copyright-text').length;
+      const colWidth = linkSections > 0 ? Math.floor(12 / linkSections) : 12; // e.g., col-md-6 for 2 sections
+      let colDiv = getElement("div", `col-md-${colWidth} col-sm-6`); // Add sm for responsiveness
 
-      let p = document.createElement("p");
-      p.className = "col-title";
+      let p = getElement("p", "col-title");
       p.innerHTML = item.label;
       colDiv.append(p);
 
-      let nav = document.createElement("nav");
-      nav.className = "col-list";
+      let nav = getElement("nav", "col-list");
+      let ul = getElement("ul", null);
 
-      let ul = document.createElement("ul");
-      item.data.forEach(function (data) {
-        let li = document.createElement("li");
-        if (data.link) {
-          let a = document.createElement("a");
-          a.href = data.link;
-          a.target = "_blank";
-          a.innerHTML = data.text;
-          li.append(a);
-        } else {
-          // If no link, just display text (like contact info)
-          li.innerHTML = data.text;
-        }
-        ul.append(li);
-      });
+      if (item.data && Array.isArray(item.data)) {
+          item.data.forEach(function (data) {
+            let li = getElement("li", null);
+            if (data.link) {
+              let a = getElement("a", null);
+              a.href = data.link;
+              a.target = "_blank";
+              a.rel = "noopener noreferrer"; // Good practice for security
+              a.innerHTML = data.text;
+              li.append(a);
+            } else {
+              // If no link, just display text (like contact info)
+              li.innerHTML = data.text;
+            }
+            ul.append(li);
+          });
+      }
       nav.append(ul);
       colDiv.append(nav);
-      row.append(colDiv); // Append the column to the row
+      linkRow.append(colDiv); // Append the column to the link row
     }
   });
 
-  footer.append(row); // Append the row containing link/contact sections
+  footer.append(linkRow); // Append the row containing link/contact sections
 
   // Handle copyright separately, usually centered below
   items.forEach(function (item) {
       if (item.label === "copyright-text") {
-        let copyrightDiv = document.createElement("div");
-        copyrightDiv.className = "row"; // Place copyright in its own row
-        let copyrightInnerDiv = document.createElement("div");
-        copyrightInnerDiv.className = "col-md-12 text-center copyright-text no-print"; // Center align
-        item.data.forEach(function (copyright) {
-          let p = document.createElement("p");
-          p.innerHTML = copyright;
-          copyrightInnerDiv.append(p);
-        });
-         copyrightDiv.append(copyrightInnerDiv);
-        footer.append(copyrightDiv); // Append copyright row after links/contact row
+        let copyrightRow = getElement("div", "row"); // Place copyright in its own row
+        let copyrightInnerDiv = getElement("div", "col-md-12 text-center copyright-text no-print"); // Center align
+
+        if (item.data && Array.isArray(item.data)) {
+            item.data.forEach(function (copyright) {
+              let p = getElement("p", null);
+              p.innerHTML = copyright;
+              copyrightInnerDiv.append(p);
+            });
+        }
+        copyrightRow.append(copyrightInnerDiv);
+        footer.append(copyrightRow); // Append copyright row after links/contact row
       }
   });
-
 }
 
-// Kept getElement function as is
-function getElement(tagName, className) {
-  let item = document.createElement(tagName);
-  if (className) { // Only set className if provided
-      item.className = className;
-  }
-  return item;
-}
 
-// Removed getBlogDate function
+// --- Wait for DOM to load before running scripts ---
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("DOM fully loaded and parsed"); // Add console log for debugging
 
-// Call population functions
-populateBio(bio, "bio");
-populateSkills(skills, "skills");
-populateProjects(projects, "projects"); // Added call for projects
-populateExp_Edu(experience, "experience");
-populateExp_Edu(education, "education");
-populateLinks(footer, "footer");
+    // Call population functions safely after DOM is ready
+    populateBio(bio, "bio");
+    populateSkills(skills, "skills");
+    populateProjects(projects, "projects"); // Added call for projects
+    populateExp_Edu(experience, "experience");
+    populateExp_Edu(education, "education");
+    populateLinks(footer, "footer");
 
-// Removed calls to fetchBlogsFromMedium, fetchReposFromGit, fetchGitConnectedData, populateTrekking
+    // If main.js depends on content being populated, ensure it runs after or is also deferred correctly.
+    // Triggering animations or waypoints might need a slight delay or re-initialization if content loads later.
+    // Example: Re-initialize waypoints if needed after content population
+    // if (typeof Waypoint !== 'undefined' && typeof Waypoint.refreshAll === 'function') {
+    //     Waypoint.refreshAll();
+    // }
+});
+
+// Note: Removed functions related to Medium, Git Repo lists, GitConnected
+// Note: Kept helper function getElement
