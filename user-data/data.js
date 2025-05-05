@@ -148,6 +148,7 @@ export const footer = [ // Footer links and contact info
     label: "Contact", // Simplified contact info for footer
     data: [
         { text: "immer.rojas@gmail.com" }, //
+        { text: "Location: El Salvador" }, //
         // Removed phone and location for brevity in footer
     ],
   },
