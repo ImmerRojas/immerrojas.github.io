@@ -1,12 +1,15 @@
 // user-data/data.js - Contains the portfolio content
 
 export const bio = [
-  "Hello, I'm Immer Rojas González!", //
-  "Experienced <strong>System Administrator</strong> with a proven track record in optimizing IT infrastructures for maximum performance and security. Specialized in cloud and on premise solutions, and cybersecurity to enhance system reliability and improve business operations. Dedicated to delivering superior IT support in dynamic, fast-paced environments.", // Combined Objective from resume
-  "Beyond technology, I focus on continuous learning in IT and exploring advancements like Artificial Intelligence (AI).", // Adapted filler text based on resume content
+  "Hello, I'm Immer Rojas González!",
+  "Experienced <strong>System Administrator</strong> with a proven track record in optimizing IT infrastructures for maximum performance and security. Specialized in cloud and on premise solutions, and cybersecurity to enhance system reliability and improve business operations. Dedicated to delivering superior IT support in dynamic, fast-paced environments.",
+  "Beyond technology, I focus on continuous learning in IT and exploring advancements like Artificial Intelligence (AI).",
 ];
 
-export const skills = [ // Extracted from Technical Skills
+// Existing skills can be repurposed or kept separate.
+// For the new "Hard Skills" with percentages, we'll create a new structure.
+// The existing 'skills' array can be considered a general overview or detailed list without percentages.
+export const skills_overview = [ // Renamed from 'skills' to avoid conflict if needed, or can be removed if new hardSkills suffice
   "<strong>Operating Systems:</strong> Windows Server",
   "<strong>Cloud & Virtualization:</strong> Azure, Office 365, VMware, Hyper-V",
   "<strong>Network & Security:</strong> Fortinet, WatchGuard, Cisco Firewalls, VPN, ESET Antivirus",
@@ -18,13 +21,56 @@ export const skills = [ // Extracted from Technical Skills
   "<strong>Others:</strong> UniFi Ubiquiti Wi-Fi, Xorcom, Alcatel, System Customization, Artificial Intelligence (AI)",
 ];
 
-export const experience = [ // Combined experience entries
+export const hardSkills = [
+  { skill: "Windows Server Administration", percentage: 90 },
+  { skill: "Azure Cloud Services", percentage: 80 },
+  { skill: "Office 365 Management", percentage: 85 },
+  { skill: "VMware & Hyper-V", percentage: 75 },
+  { skill: "Fortinet Firewalls", percentage: 85 },
+  { skill: "WatchGuard Firewalls", percentage: 80 },
+  { skill: "Cisco Firewalls", percentage: 70 },
+  { skill: "SQL Server Management", percentage: 90 },
+  { skill: "MySQL Management", percentage: 80 },
+  { skill: "SAP Business One Administration", percentage: 85 },
+  { skill: "Crystal Reports Development", percentage: 90 },
+  { skill: "Power BI", percentage: 70 },
+  { skill: "Cybersecurity Practices", percentage: 85 },
+  { skill: "Network Configuration (LAN/WAN, DNS)", percentage: 80 },
+];
+
+export const softSkills = [
+  { skill: "Problem Solving", percentage: 95 },
+  { skill: "Analytical Thinking", percentage: 90 },
+  { skill: "Communication", percentage: 85 },
+  { skill: "Teamwork & Collaboration", percentage: 90 },
+  { skill: "Adaptability", percentage: 80 },
+  { skill: "Time Management", percentage: 85 },
+  { skill: "Attention to Detail", percentage: 90 },
+  { skill: "Continuous Learning", percentage: 95 },
+];
+
+export const languageSkills = [
+  { language: "Spanish", percentage: 100, note: "Native" },
+  { language: "English", percentage: 80, note: "Advanced" },
+];
+
+export const interestsHobbies = [
+  "Exploring new technologies and AI advancements",
+  "Cybersecurity trends and best practices",
+  "Data analysis and visualization",
+  "Cloud computing innovations",
+  "Reading tech blogs and articles",
+  "Problem-solving challenges (e.g., coding puzzles, strategy games)",
+  "Hiking and outdoor activities",
+  "Learning new programming languages or frameworks in spare time",
+];
+
+export const experience = [
    {
-    title: "IML", //
-    duration: "2023 - Present", //
-    subtitle: "IT Specialist / Systems and Database Management Specialist", // Combined titles
+    title: "IML",
+    duration: "2023 - Present",
+    subtitle: "IT Specialist / Systems and Database Management Specialist",
     details: [
-      // Details combined from IML and General Specialist sections relevant to timeframe
       "Optimized SAP Business One environments for performance and scalability; led third-party integrations.",
       "Designed and optimized SQL queries and Crystal Reports for data-driven insights.",
       "Configured user roles and permissions in SAP Business One.",
@@ -39,48 +85,45 @@ export const experience = [ // Combined experience entries
       "Set up and deployed Firebase, ensuring efficient backend management and app performance.",
       "Integrated SAP Business One with third-party systems to streamline data exchange.",
     ],
-    tags: ["SAP Business One", "SQL Server", "Crystal Reports", "MySQL", "Firebase", "Fortinet", "WatchGuard", "Cisco", "Cybersecurity", "Microsoft 365", "Windows Server", "IT Support"], // Synthesized from details
-    icon: "briefcase", // Changed icon
+    tags: ["SAP Business One", "SQL Server", "Crystal Reports", "MySQL", "Firebase", "Fortinet", "WatchGuard", "Cisco", "Cybersecurity", "Microsoft 365", "Windows Server", "IT Support"],
+    icon: "briefcase",
   },
   {
-    title: "PartsPlus", //
-    duration: "2015 - 2022", //
-    subtitle: "Systems and Database Management Specialist", //
+    title: "PartsPlus",
+    duration: "2015 - 2022",
+    subtitle: "Systems and Database Management Specialist",
     details: [
-      // Details from General Specialist section relevant to timeframe
       "Configured, managed, and secured network firewalls (Fortinet, WatchGuard).",
       "Applied cybersecurity practices and compliance protocols.",
       "Managed SQL Server environments: installation, configuration, optimization, backups.",
       "Developed complex SQL queries for analysis and reporting.",
       "Troubleshot and optimized MySQL databases.",
       "Deployed ESET Antivirus and integrated endpoint protection.",
-      "Integrated SAP Business One with third-party systems.", // Also mentioned in PartsPlus specific description in original data.js
-      "Led the deployment and management of VPN solutions.", // Kept from original data.js PartsPlus entry, plausible for timeframe
-      "Provided comprehensive IT support and training.", // Kept from original data.js PartsPlus entry, plausible for timeframe
+      "Integrated SAP Business One with third-party systems.",
+      "Led the deployment and management of VPN solutions.",
+      "Provided comprehensive IT support and training.",
     ],
-    tags: ["SQL Server", "MySQL", "SAP Business One", "Fortinet", "WatchGuard", "Cybersecurity", "VPN", "IT Support", "Windows Server"], // Synthesized from details
-    icon: "database", // Kept icon
+    tags: ["SQL Server", "MySQL", "SAP Business One", "Fortinet", "WatchGuard", "Cybersecurity", "VPN", "IT Support", "Windows Server"],
+    icon: "database",
   },
   {
-    title: "HDM", //
-    duration: "2011 - 2015", //
-    subtitle: "Systems and Database Management Specialist", //
+    title: "HDM",
+    duration: "2011 - 2015",
+    subtitle: "Systems and Database Management Specialist",
     details: [
-      // Details from General Specialist section relevant to timeframe
       "Configured, managed, and secured network firewalls (Fortinet).",
        "Applied cybersecurity practices.",
        "Managed SQL Server environments: installation, configuration, optimization, backups.",
        "Developed complex SQL queries for data analysis and reporting.",
        "Troubleshot and optimized MySQL databases.",
-       "Provided IT support and training to end users.", // Kept from original data.js HDM entry, plausible for timeframe
-       "Created and customized Crystal Reports.", // Based on resume skills
+       "Provided IT support and training to end users.",
+       "Created and customized Crystal Reports.",
     ],
-    tags: ["SQL Server", "MySQL", "Fortinet", "Crystal Reports", "IT Support", "Database Management"], // Synthesized from details
-    icon: "server", // Changed icon
+    tags: ["SQL Server", "MySQL", "Fortinet", "Crystal Reports", "IT Support", "Database Management"],
+    icon: "server",
   },
 ];
 
-// Repurposing 'projects' to highlight key technical areas based on skills/experience
 export const projects = [
   '<strong>Firewall & Network Security:</strong> Configuration and management (Fortinet, WatchGuard, Cisco).',
   '<strong>Cybersecurity Implementation:</strong> Policies, threat mitigation, endpoint security (ESET), M365 Security.',
@@ -92,68 +135,67 @@ export const projects = [
   '<strong>AI Integration:</strong> Exploring Artificial Intelligence applications.',
 ];
 
-export const education = [ // From Education and Certifications
+export const education = [
   {
-    title: "International Postgraduate in Artificial Intelligence for Strategic Business Management", //
-    duration: "2024", //
-    subtitle: "ISEADE FEPADE", //
+    title: "International Postgraduate in Artificial Intelligence for Strategic Business Management",
+    duration: "2024",
+    subtitle: "ISEADE FEPADE",
     details: [],
-    tags: ["Artificial Intelligence", "Business Management", "Strategic Management"], // Interpreted tags
-    icon: "brain", // Changed icon
+    tags: ["Artificial Intelligence", "Business Management", "Strategic Management"],
+    icon: "brain",
   },
   {
-    title: "Bachelor's Degree in Computer Science Engineering", //
-    duration: "2016 - 2021", //
-    subtitle: "Universidad Francisco Gavidia", //
+    title: "Bachelor's Degree in Computer Science Engineering",
+    duration: "2016 - 2021",
+    subtitle: "Universidad Francisco Gavidia",
     details: [
-      "Focused on core concepts of computer science, programming, and systems administration", // Consistent
-      "Acquired hands-on experience with database management, networking, and IT security" // Consistent
+      "Focused on core concepts of computer science, programming, and systems administration",
+      "Acquired hands-on experience with database management, networking, and IT security"
     ],
-    tags: ["Computer Science", "Programming", "Systems Administration", "Database Management", "Networking", "IT Security"], // Expanded tags
-    icon: "graduation-cap", // Kept icon
+    tags: ["Computer Science", "Programming", "Systems Administration", "Database Management", "Networking", "IT Security"],
+    icon: "graduation-cap",
   },
    {
-    title: "Cisco Certified Network Associate (CCNA)", //
-    duration: "Obtained: 2021", //
-    subtitle: "Certification by Cisco", //
-    details: ["Validated foundational networking knowledge and skills."], // Added detail
-    tags: ["Networking", "Cisco", "Certification"], // Expanded tags
-    icon: "certificate", // Changed icon
+    title: "Cisco Certified Network Associate (CCNA)",
+    duration: "Obtained: 2021",
+    subtitle: "Certification by Cisco",
+    details: ["Validated foundational networking knowledge and skills."],
+    tags: ["Networking", "Cisco", "Certification"],
+    icon: "certificate",
   },
    {
-    title: "Microsoft Defender for Cloud Security & Exchange Online Training", // Combined trainings
-    duration: "Completed: 2023", // From resume training section
-    subtitle: "ITCO Cloud Academy", // From resume training section
-    details: ["Training on Security at Scale, Configurations and Best Practices."], // From resume training section
-    tags: ["Cloud Security", "Microsoft Defender", "Exchange Online", "Microsoft 365"], // Interpreted tags
-    icon: "cloud", // Changed icon
+    title: "Microsoft Defender for Cloud Security & Exchange Online Training",
+    duration: "Completed: 2023",
+    subtitle: "ITCO Cloud Academy",
+    details: ["Training on Security at Scale, Configurations and Best Practices."],
+    tags: ["Cloud Security", "Microsoft Defender", "Exchange Online", "Microsoft 365"],
+    icon: "cloud",
   },
 ];
 
-export const footer = [ // Footer links and contact info
+export const footer = [
   {
     label: "Links",
     data: [
-       { // Added LinkedIn from resume
+       {
         text: "LinkedIn",
-        link: "https://www.linkedin.com/in/immer-rojas", // Updated link
+        link: "https://www.linkedin.com/in/immer-rojas",
       },
-      { // Kept GitHub link as it's common for portfolios
+      {
         text: "Github",
-        link: "https://github.com/ImmerRojas", // Assumed generic GitHub profile URL for user immerrojas
+        link: "https://github.com/ImmerRojas",
       },
     ],
   },
   {
-    label: "Contact", // Simplified contact info for footer
+    label: "Contact",
     data: [
-        { text: "immer.rojas@gmail.com" }, //
-        { text: "Location: El Salvador" }, //
-        // Removed phone and location for brevity in footer
+        { text: "immer.rojas@gmail.com" },
+        { text: "Location: El Salvador" },
     ],
   },
   {
     label: "copyright-text",
-    data: ["Made with &hearts; by Immer Rojas González"], // Updated name
+    data: ["Made with &hearts; by Immer Rojas González"],
   },
 ];
