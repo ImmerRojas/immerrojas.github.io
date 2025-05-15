@@ -1,14 +1,15 @@
 // index.js - Handles populating the HTML with data
 
 // Corrected import path for data.js to reflect the 'user-data' folder
-import {
+import { bio, skills, hardSkills, softSkills, languageSkills, experience, projects, education, interestsHobbies, footer } from './user-data/data.js';
+/*import {
   bio,
   skills,
   education,
   experience,
   projects, // Added projects import
   footer,
-} from "./user-data/data.js"; // <--- CORRECTED PATH
+} from "./user-data/data.js"; // <--- CORRECTED PATH*/
 
 // Helper function to create elements
 function getElement(tagName, className) {
