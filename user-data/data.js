@@ -6,8 +6,7 @@ export const bio = [
   "Beyond technology, I focus on continuous learning in IT and exploring advancements like Artificial Intelligence (AI).",
 ];
 
-// This is the original skills list. Keeping export name as 'skills'
-// ensures that if index.js expects 'skills' for the original skills section, it will load.
+// This is the original skills list (Skills Overview)
 export const skills = [
   "<strong>Operating Systems:</strong> Windows Server",
   "<strong>Cloud & Virtualization:</strong> Azure, Office 365, VMware, Hyper-V",
@@ -123,7 +122,7 @@ export const experience = [
   },
 ];
 
-export const projects = [
+export const projects = [ // This is for the "Key Areas" section
   '<strong>Firewall & Network Security:</strong> Configuration and management (Fortinet, WatchGuard, Cisco).',
   '<strong>Cybersecurity Implementation:</strong> Policies, threat mitigation, endpoint security (ESET), M365 Security.',
   '<strong>SQL Server & MySQL Management:</strong> Installation, configuration, optimization, backup, query development.',
