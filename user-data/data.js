@@ -6,10 +6,9 @@ export const bio = [
   "Beyond technology, I focus on continuous learning in IT and exploring advancements like Artificial Intelligence (AI).",
 ];
 
-// Existing skills can be repurposed or kept separate.
-// For the new "Hard Skills" with percentages, we'll create a new structure.
-// The existing 'skills' array can be considered a general overview or detailed list without percentages.
-export const skills_overview = [ // Renamed from 'skills' to avoid conflict if needed, or can be removed if new hardSkills suffice
+// This is the original skills list. Keeping export name as 'skills'
+// ensures that if index.js expects 'skills' for the original skills section, it will load.
+export const skills = [
   "<strong>Operating Systems:</strong> Windows Server",
   "<strong>Cloud & Virtualization:</strong> Azure, Office 365, VMware, Hyper-V",
   "<strong>Network & Security:</strong> Fortinet, WatchGuard, Cisco Firewalls, VPN, ESET Antivirus",
