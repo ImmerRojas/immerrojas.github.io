@@ -47,14 +47,16 @@ function populateSkills(items, id) {
         return;
     }
     skillsTag.innerHTML = ''; // Clear existing content
-    const ul = getElement("ul", null); // Removed "list-unstyled" as new CSS handles it
+    const ul = getElement("ul", "list-unstyled"); // Using a list for better structure
     items.forEach((item) => {
         const li = getElement("li", null);
         li.innerHTML = item; // Item already contains <strong> tags
         ul.appendChild(li);
     });
-    // The row structure in HTML is enough, no need for extra col-md-12 wrapper here if target is already a row
-    skillsTag.appendChild(ul);
+    // Wrap the list in a column for consistent layout if needed
+    const divCol = getElement("div", "col-md-12");
+    divCol.appendChild(ul);
+    skillsTag.appendChild(divCol);
 }
 
 // For Hard Skills, Soft Skills, Language Skills (with percentages)
@@ -78,13 +80,13 @@ function populateSkillsWithProgress(items, id, skillKeyName = 'skill') {
             const spanPercentage = getElement("span", null);
             spanPercentage.innerHTML = `${percentage}%`;
 
-            const divProgressBar = getElement("div", `progress-bar color-${(index % 6) + 1}`);
+            const divProgressBar = getElement("div", `progress-bar color-${(index % 6) + 1}`); // Cycle through 6 colors
             divProgressBar.setAttribute("role", "progressbar");
             divProgressBar.setAttribute("aria-valuenow", percentage);
             divProgressBar.setAttribute("aria-valuemin", "0");
             divProgressBar.setAttribute("aria-valuemax", "100");
             divProgressBar.style.width = `${percentage}%`;
-            divProgressBar.appendChild(spanPercentage); // Percentage span inside bar
+            divProgressBar.appendChild(spanPercentage);
 
             const divProgress = getElement("div", "progress");
             divProgress.appendChild(divProgressBar);
@@ -93,9 +95,8 @@ function populateSkillsWithProgress(items, id, skillKeyName = 'skill') {
             divProgressWrap.appendChild(h3);
             divProgressWrap.appendChild(divProgress);
 
-            // Bootstrap column for layout
-            const divAnimateBox = getElement("div", "col-md-6 animate-box");
-            divAnimateBox.setAttribute("data-animate-effect", "fadeInLeft");
+            const divAnimateBox = getElement("div", "col-md-6 animate-box"); // Each skill takes half width
+            divAnimateBox.setAttribute("data-animate-effect", "fadeInLeft"); // Example animation
             divAnimateBox.appendChild(divProgressWrap);
 
             containerTag.appendChild(divAnimateBox);
@@ -113,13 +114,16 @@ function populateProjects(items, id) { // For "Key Technical Areas"
         return;
     }
     projectsTag.innerHTML = ''; // Clear existing content
-    const ul = getElement("ul", null); // Removed "list-unstyled"
+    const ul = getElement("ul", "list-unstyled"); // Using a list for better structure
     items.forEach((item) => {
         const li = getElement("li", null);
         li.innerHTML = item; // Item already contains <strong> tags
         ul.appendChild(li);
     });
-    projectsTag.appendChild(ul);
+     // Wrap the list in a column for consistent layout
+    const divCol = getElement("div", "col-md-12");
+    divCol.appendChild(ul);
+    projectsTag.appendChild(divCol);
 }
 
 function populateInterestsHobbies(items, id) {
@@ -130,7 +134,7 @@ function populateInterestsHobbies(items, id) {
     }
     containerTag.innerHTML = ''; // Clear existing content
     if (items && items.length > 0) {
-        const ul = getElement("ul", null); // Removed "list-unstyled"
+        const ul = getElement("ul", "list-unstyled");
         items.forEach(itemText => {
             const li = getElement("li", null);
             li.innerHTML = itemText;
@@ -155,31 +159,29 @@ function populateExp_Edu(items, id) {
         let spanTimelineSublabel = getElement("span", "timeline-sublabel");
         spanTimelineSublabel.innerHTML = item.subtitle || "";
 
-        let spanh2Duration = getElement("span", null); // For duration
-        spanh2Duration.innerHTML = item.duration || "";
+        let spanh2 = getElement("span", null);
+        spanh2.innerHTML = item.duration || "";
 
-        let h2TimelineLabel = getElement("h2", null); // Main title
+        let h2TimelineLabel = getElement("h2", null);
         h2TimelineLabel.innerHTML = item.title || "";
-        h2TimelineLabel.append(spanh2Duration); // Append duration to title
+        h2TimelineLabel.append(spanh2);
 
         let divTimelineLabel = getElement("div", "timeline-label");
         divTimelineLabel.append(h2TimelineLabel);
-        divTimelineLabel.append(spanTimelineSublabel); // Subtitle below title
+        divTimelineLabel.append(spanTimelineSublabel);
 
         if (item.details && Array.isArray(item.details) && item.details.length > 0) {
             item.details.forEach(detail => {
-                // Using p for details might be better for semantic and styling
-                let pDetail = getElement("p", "timeline-text");
-                // Using a different marker or styling via CSS :before for elegance
-                pDetail.innerHTML = detail; // Removed "&blacksquare;" - style with CSS if needed
-                divTimelineLabel.append(pDetail);
+                let pTimelineText = getElement("p", "timeline-text");
+                pTimelineText.innerHTML = "&blacksquare; " + detail;
+                divTimelineLabel.append(pTimelineText);
             });
         }
 
         if (item.tags && Array.isArray(item.tags) && item.tags.length > 0) {
             let divTags = getElement("div", "tags-container");
             item.tags.forEach(tag => {
-                let spanTags = getElement("span", "badge"); // Bootstrap badge styling will apply
+                let spanTags = getElement("span", "badge");
                 spanTags.innerHTML = tag;
                 divTags.append(spanTags);
             });
@@ -188,8 +190,7 @@ function populateExp_Edu(items, id) {
 
         let iFa = getElement("i", "fa fa-" + (item.icon || "briefcase"));
         let iconColorClass = "color-" + ((i % 6) + 1); // Cycle through 6 colors for variety
-        // CSS will handle icon background color based on .timeline-icon and .color-X
-        let divTimelineIcon = getElement("div", `timeline-icon ${iconColorClass}`);
+        let divTimelineIcon = getElement("div", "timeline-icon " + iconColorClass);
         divTimelineIcon.append(iFa);
 
         let divTimelineEntryInner = getElement("div", "timeline-entry-inner");
@@ -197,63 +198,57 @@ function populateExp_Edu(items, id) {
         divTimelineEntryInner.append(divTimelineLabel);
 
         let article = getElement("article", "timeline-entry animate-box");
-        article.setAttribute("data-animate-effect", "fadeInLeft");
+        article.setAttribute("data-animate-effect", "fadeInLeft"); // Add animation effect
         article.append(divTimelineEntryInner);
 
         mainContainer.append(article);
     });
 
-    // "End of timeline" marker
-    let divTimelineIconEnd = getElement("div", "timeline-icon color-" + (((items.length) % 6) + 1)); // Match color cycle
+    let divTimelineIconEnd = getElement("div", "timeline-icon color-" + (((items.length) % 6) + 1));
     let divTimelineEntryInnerEnd = getElement("div", "timeline-entry-inner");
     divTimelineEntryInnerEnd.append(divTimelineIconEnd);
 
-    let articleEnd = getElement("article", "timeline-entry begin animate-box"); // "begin" class can be used for styling start/end nodes
-    articleEnd.setAttribute("data-animate-effect", "fadeInLeft");
+    let articleEnd = getElement("article", "timeline-entry begin animate-box");
+    articleEnd.setAttribute("data-animate-effect", "fadeInLeft"); // Add animation effect
     articleEnd.append(divTimelineEntryInnerEnd);
     mainContainer.append(articleEnd);
 }
 
 function populateLinks(items, id) {
-    let footerElement = document.getElementById(id); // Changed variable name for clarity
-    if (!footerElement) {
+    let footer = document.getElementById(id);
+    if (!footer) {
         console.error(`Element with id "${id}" not found for footer.`);
         return;
     }
-    footerElement.innerHTML = ''; // Clear existing content
+    footer.innerHTML = '';
 
-    let linkRow = getElement("div", "row"); // Bootstrap row for link columns
-
-    // Links section
-    const linkSections = items.filter(f => f.label !== 'copyright-text');
-    const numLinkColumns = linkSections.length;
-    // Bootstrap column sizing (e.g., col-md-4 for 3 columns, col-md-6 for 2)
-    const colWidth = numLinkColumns > 0 ? Math.floor(12 / Math.max(1, numLinkColumns)) : 12;
-
+    let linkRow = getElement("div", "row");
 
     items.forEach(function (item) {
         if (item.label !== "copyright-text") {
-            let colDiv = getElement("div", `col-md-${colWidth} col-sm-6`); // Responsive columns
+            const linkSections = items.filter(f => f.label !== 'copyright-text').length;
+            const colWidth = linkSections > 0 ? Math.max(4, Math.floor(12 / linkSections)) : 12;
+            let colDiv = getElement("div", `col-md-${colWidth} col-sm-6`);
 
-            let pTitle = getElement("p", "col-title");
-            pTitle.innerHTML = item.label;
-            colDiv.append(pTitle);
+            let p = getElement("p", "col-title");
+            p.innerHTML = item.label;
+            colDiv.append(p);
 
             let nav = getElement("nav", "col-list");
-            let ul = getElement("ul", null); // Removed "list-unstyled"
+            let ul = getElement("ul", null);
 
             if (item.data && Array.isArray(item.data)) {
-                item.data.forEach(function (dataItem) { // Changed variable name
+                item.data.forEach(function (data) {
                     let li = getElement("li", null);
-                    if (dataItem.link) {
+                    if (data.link) {
                         let a = getElement("a", null);
-                        a.href = dataItem.link;
+                        a.href = data.link;
                         a.target = "_blank";
                         a.rel = "noopener noreferrer";
-                        a.innerHTML = dataItem.text;
+                        a.innerHTML = data.text;
                         li.append(a);
                     } else {
-                        li.innerHTML = dataItem.text; // For non-link items like email
+                        li.innerHTML = data.text;
                     }
                     ul.append(li);
                 });
@@ -263,23 +258,22 @@ function populateLinks(items, id) {
             linkRow.append(colDiv);
         }
     });
-    footerElement.append(linkRow);
+    footer.append(linkRow);
 
-    // Copyright section
     items.forEach(function (item) {
         if (item.label === "copyright-text") {
-            let copyrightRow = getElement("div", "row"); // Separate row for copyright
+            let copyrightRow = getElement("div", "row");
             let copyrightInnerDiv = getElement("div", "col-md-12 text-center copyright-text no-print");
 
             if (item.data && Array.isArray(item.data)) {
-                item.data.forEach(function (copyrightText) { // Changed variable name
+                item.data.forEach(function (copyright) {
                     let p = getElement("p", null);
-                    p.innerHTML = copyrightText;
+                    p.innerHTML = copyright;
                     copyrightInnerDiv.append(p);
                 });
             }
             copyrightRow.append(copyrightInnerDiv);
-            footerElement.append(copyrightRow); // Append copyright row to footer
+            footer.append(copyrightRow);
         }
     });
 }
@@ -291,28 +285,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
     try {
         populateBio(bio, "bio");
-        populateSkills(skills, "skills");
+        populateSkills(skills, "skills"); // For Skills Overview (no percentages)
 
+        // Populate skills with progress bars
         populateSkillsWithProgress(hardSkills, "hard-skills", 'skill');
         populateSkillsWithProgress(softSkills, "soft-skills", 'skill');
         populateSkillsWithProgress(languageSkills, "language-skills", 'language');
 
         populateProjects(projects, "projects");
-        populateInterestsHobbies(interestsHobbies, "interests-hobbies");
+        populateInterestsHobbies(interestsHobbies, "interests-hobbies"); // Added call for interests
         populateExp_Edu(experience, "experience");
         populateExp_Edu(education, "education");
         populateLinks(footer, "footer");
 
         console.log("Content population functions called.");
-    } catch (error)
+    } catch (error) {
         console.error("Error during content population:", error);
     }
 
-    // Waypoint refresh logic (ensure main.js and Waypoints are correctly loaded)
+    // Waypoint refresh logic from your original file
+    // (Ensure main.js and Waypoints are correctly loaded in index.html for this to work)
     if (typeof Waypoint !== 'undefined' && typeof $ !== 'undefined' && typeof $('.animate-box').waypoint === 'function') {
         console.log("Attempting to re-initialize Waypoints for animate-box elements...");
         $('.animate-box').waypoint(function( direction ) {
             if( direction === 'down' && !$(this.element).hasClass('animated-fast') ) {
+                // $(this.element).removeClass('item-animate'); // Ensure it's clean before adding
                 $(this.element).addClass('item-animate');
                 setTimeout(function(){
                     $('body .animate-box.item-animate').each(function(k){
@@ -325,16 +322,16 @@ document.addEventListener('DOMContentLoaded', () => {
                                 el.addClass('fadeInLeft animated-fast');
                             } else if ( effect === 'fadeInRight') {
                                 el.addClass('fadeInRight animated-fast');
-                            } else {
+                            } else { // Default to fadeInUp if not specified or other
                                 el.addClass('fadeInUp animated-fast');
                             }
                             el.removeClass('item-animate');
-                        },  k * 50, 'easeInOutExpo' );
+                        },  k * 50, 'easeInOutExpo' ); // Reduced delay k*50 for faster appearance
                     });
                 }, 100);
             }
-        }, { offset: '85%' } );
-        Waypoint.refreshAll();
+        }, { offset: '85%' } ); // Standard offset
+        Waypoint.refreshAll(); // Also call refreshAll
         console.log("Waypoints re-initialization attempted.");
     } else {
          console.warn("Waypoint library, jQuery, or .waypoint function not available for re-initialization of animate-box.");
