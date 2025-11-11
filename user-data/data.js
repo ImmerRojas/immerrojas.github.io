@@ -71,7 +71,7 @@ export const experience = [
     details: [
       "Created and modified CL, RPG, RPGLE, SQLRPGLE programs and command procedures",
     ],
-    tags: ["RPGIV", "DB2", "ILE"],
+    tags: ["RPGIV", "DB2", "ILE", "AS400", "IBM i"],
     icon: "briefcase",
   },
    {
