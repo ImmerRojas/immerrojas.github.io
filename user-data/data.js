@@ -64,6 +64,16 @@ export const interestsHobbies = [
 ];
 
 export const experience = [
+     {
+    title: "CP",
+    duration: "2025 - Present",
+    subtitle: "IBM i Developer / AS400 Developer",
+    details: [
+      "Created and modified CL, RPG, RPGLE, SQLRPGLE programs and command procedures",
+    ],
+    tags: ["RPGIV", "DB2", "ILE"],
+    icon: "briefcase",
+  },
    {
     title: "IML",
     duration: "2023 - Present",
